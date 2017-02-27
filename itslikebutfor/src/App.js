@@ -1,20 +1,60 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {FormControl, ControlLabel} from 'react-bootstrap';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+        <div id="content">
+          <InputField/>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
+  }
+}
+class ShowResult extends Component{
+  render(){
+    return(
+      <div id="resultDiv">
+        <h1>it's like ... but for ...</h1>
+      </div>
+    )
+  }
+}
+class InputField extends Component{
+  constructor(props) {
+   super(props);
+   this.state = {
+     value: '',
+   };
+  }
+  getInitialState() {
+    return {
+      value: ''
+    };
+  }
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+  handleSubmit(e){
+    e.preventDefault();
+  }
+  render(){
+    return(
+      <div className="inputField">
+        <form onSubmit={this.handleSubmit}>
+        <ControlLabel>Enter your last used application</ControlLabel>
+          <FormControl autoFocus className="formControl"
+            type="text"
+            value={this.state.value}
+            placeholder="e.g. facebook"
+            onChange={this.handleChange}
+          />
+      </form>
+      </div>
+    )
   }
 }
 
