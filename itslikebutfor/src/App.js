@@ -13,13 +13,16 @@ class App extends Component {
   lastAppEdit(word){
     this.setState({lastApp:word, showPage:'showResult'});
   }
+  backToInputState(){
+    this.setState({showPage:'inputfield'})
+  }
   render() {
     return (
       <div className="App">
         <div id="content">
           {this.state.showPage === "inputfield"
             ?<InputField showPage={this.state.showPage} lastAppEdit={this.lastAppEdit.bind(this)} lastApp={this.state.lastApp}/>
-            :<ShowResult showPage={this.state.showPage} lastApp={this.state.lastApp}/>}
+          :<ShowResult showPage={this.state.showPage} lastApp={this.state.lastApp} backToInputState={this.backToInputState.bind(this)}/>}
         </div>
       </div>
     );
@@ -35,15 +38,27 @@ class ShowResult extends Component{
   componentDidMount(){
     this.setState({thing:"cats"});
   }
+  newThing(){
+    this.setState({thing:"dogs"});
+  }
   handleClick(e){
+    console.log("asd");
     //backspace
-    if(e.charCode === 8){
-      this.props.lastApp = "";
+    if(e.code === "Backspace"){
+      document.removeEventListener("keydown",this.handleClick.bind(this));
+      this.props.backToInputState();
     }
     //enter och space
-    if(e.charCode === 13 || e.charCode === 32){
-
+    if(e.code === "Enter" || e.code === "Spacebar"){
+      this.newThing();
     }
+  }
+  componentWillMount(){
+    document.addEventListener("keydown",this.handleClick.bind(this));
+  }
+  //funkar inte :(
+  componentWillUnmount(){
+    document.removeEventListener("keydown",this.handleClick.bind(this));
   }
   render(){
     return(
@@ -73,7 +88,7 @@ class InputField extends Component{
     return(
       <div className="inputField">
         <form onSubmit={this.handleSubmit.bind(this)}>
-        <ControlLabel>Enter your last used application</ControlLabel>
+        <ControlLabel>Enter your last used application  </ControlLabel>
           <FormControl autoFocus className="formControl"
             type="text"
             value={this.state.value}
