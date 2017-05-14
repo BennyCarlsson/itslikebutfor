@@ -1,0 +1,9 @@
+-------------Todo----------------
+Style
+List with
+choose random list
+text: Enter or Space for new option
+text: Backspace for start page
+Fix Error
+----------------In Progress-----
+----------------Done------------
