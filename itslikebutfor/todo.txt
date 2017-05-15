@@ -1,9 +1,13 @@
 -------------Todo----------------
 Style
 List with
-choose random list
+chose from list
+chose random list
 text: Enter or Space for new option
 text: Backspace for start page
 Fix Error
+edit title
+edit favicon
 ----------------In Progress-----
+make list
 ----------------Done------------

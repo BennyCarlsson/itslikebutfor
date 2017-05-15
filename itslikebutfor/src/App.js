@@ -39,10 +39,10 @@ class ShowResult extends Component{
     this.setState({thing:"cats"});
   }
   newThing(){
-    this.setState({thing:"dogs"});
+    const numbers = ["dogs", "babies", "food", "pizza", "puppies"];
+    this.setState({thing:numbers[1]});
   }
   handleClick(e){
-    console.log("asd");
     //backspace
     if(e.code === "Backspace"){
       document.removeEventListener("keydown",this.handleClick.bind(this));
