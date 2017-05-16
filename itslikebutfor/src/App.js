@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import list from './list.js';
 import {FormControl, ControlLabel} from 'react-bootstrap';
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
     );
   }
 }
+
 class ShowResult extends Component{
   constructor(props) {
    super(props);
@@ -39,8 +41,7 @@ class ShowResult extends Component{
     this.setState({thing:"cats"});
   }
   newThing(){
-    const numbers = ["dogs", "babies", "food", "pizza", "puppies"];
-    this.setState({thing:numbers[1]});
+    this.setState({thing:list[3]});
   }
   handleClick(e){
     //backspace
