@@ -1,8 +1,7 @@
 -------------Todo----------------
 Style
-List with
-
-
+Share facebook button
+Share Twitterbutton
 text: Enter or Space for new option
 text: Backspace for start page
 Fix Error

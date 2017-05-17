@@ -41,7 +41,8 @@ class ShowResult extends Component{
     this.setState({thing:"cats"});
   }
   newThing(){
-    this.setState({thing:list[3]});
+    var n = Math.floor((Math.random() * list.length));
+    this.setState({thing:list[n]});
   }
   handleClick(e){
     //backspace
