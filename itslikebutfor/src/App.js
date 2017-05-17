@@ -33,6 +33,7 @@ class App extends Component {
 class ShowResult extends Component{
   constructor(props) {
    super(props);
+   this.handleClick = this.handleClick.bind(this);
    this.state = {
      thing: '',
    };
@@ -56,11 +57,10 @@ class ShowResult extends Component{
     }
   }
   componentWillMount(){
-    document.addEventListener("keydown",this.handleClick.bind(this));
+    document.addEventListener("keydown",this.handleClick,false);
   }
-  //funkar inte :(
   componentWillUnmount(){
-    document.removeEventListener("keydown",this.handleClick.bind(this));
+    document.removeEventListener("keydown",this.handleClick,false);
   }
   render(){
     return(
