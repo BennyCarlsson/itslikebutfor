@@ -39,7 +39,8 @@ class ShowResult extends Component{
    };
   }
   componentDidMount(){
-    this.setState({thing:"cats"});
+    var n = Math.floor((Math.random() * list.length));
+    this.setState({thing:list[n]});
   }
   newThing(){
     var n = Math.floor((Math.random() * list.length));

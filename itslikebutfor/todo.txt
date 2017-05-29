@@ -4,12 +4,13 @@ Share facebook button
 Share Twitterbutton
 text: Enter or Space for new option
 text: Backspace for start page
-Fix Error
-edit title
+add stuff to list
 edit favicon
 Readme.md
 ----------------In Progress-----
-chose random from list
 ----------------Done------------
+edit title
+chose random from list
+Fix Error
 make list
 chose from list
