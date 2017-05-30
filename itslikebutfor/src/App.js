@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 import list from './list.js';
-import {FormControl, ControlLabel} from 'react-bootstrap';
+import {FormControl, ControlLabel, Grid, Row, Col} from 'react-bootstrap';
 
 class App extends Component {
   constructor(props) {
@@ -19,12 +18,20 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <div id="content">
-          {this.state.showPage === "inputfield"
-            ?<InputField showPage={this.state.showPage} lastAppEdit={this.lastAppEdit.bind(this)} lastApp={this.state.lastApp}/>
-          :<ShowResult showPage={this.state.showPage} lastApp={this.state.lastApp} backToInputState={this.backToInputState.bind(this)}/>}
-        </div>
+      <div>
+        <Grid>
+          <Row>
+            <Col xsHidden md={3}></Col>
+            <Col md={6}>
+                {
+                  this.state.showPage === "inputfield"
+                  ?<InputField showPage={this.state.showPage} lastAppEdit={this.lastAppEdit.bind(this)} lastApp={this.state.lastApp}/>
+                  :<ShowResult showPage={this.state.showPage} lastApp={this.state.lastApp} backToInputState={this.backToInputState.bind(this)}/>
+                }
+            </Col>
+            <Col xsHidden md={3}></Col>
+          </Row>
+        </Grid>
       </div>
     );
   }
@@ -53,7 +60,7 @@ class ShowResult extends Component{
       this.props.backToInputState();
     }
     //enter och space
-    if(e.code === "Enter" || e.code === "Spacebar"){
+    if(e.code === "Enter" || e.code === "Space"){
       this.newThing();
     }
   }
@@ -65,10 +72,12 @@ class ShowResult extends Component{
   }
   render(){
     return(
-      <div id="resultDiv" onKeyPress={this.handleClick}>
-        <h1>it's like <span className="word">{this.props.lastApp} </span>
-          but for <span className="word">{this.state.thing}</span></h1>
-      </div>
+      <div onKeyPress={this.handleClick}>
+        <h1>it's like <span>{this.props.lastApp} </span>
+          but for <span>{this.state.thing}</span></h1>
+        <p className="text-left"><kbd>Backspace</kbd> for new</p>
+        <p className="text-right"><kbd>Enter</kbd> or <kbd>Space</kbd> for next</p>
+    </div>
     )
   }
 }
@@ -89,10 +98,10 @@ class InputField extends Component{
   }
   render(){
     return(
-      <div className="inputField">
+      <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
-        <ControlLabel>Enter your last used application  </ControlLabel>
-          <FormControl autoFocus className="formControl"
+        <ControlLabel><h1>Enter your last used application</h1>  </ControlLabel>
+          <FormControl autoFocus
             type="text"
             value={this.state.value}
             placeholder="e.g. facebook"

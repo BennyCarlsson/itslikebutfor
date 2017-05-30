@@ -1,14 +1,18 @@
 -------------Todo----------------
-Style
+
 Share facebook button
 Share Twitterbutton
-text: Enter or Space for new option
-text: Backspace for start page
+handle empty input
+handle char limit
 add stuff to list
 edit favicon
 Readme.md
 ----------------In Progress-----
+Style
+text: Enter or Space for new option
+text: Backspace for start page
 ----------------Done------------
+spacebar for next option
 edit title
 chose random from list
 Fix Error
