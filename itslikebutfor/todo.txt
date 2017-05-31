@@ -1,16 +1,12 @@
 -------------Todo----------------
-
+Analytics
 Share facebook button
 Share Twitterbutton
-handle empty input
-handle char limit
+Github Link
 add stuff to list
-edit favicon
 Readme.md
 ----------------In Progress-----
-Style
-text: Enter or Space for new option
-text: Backspace for start page
+
 ----------------Done------------
 spacebar for next option
 edit title
@@ -18,3 +14,6 @@ chose random from list
 Fix Error
 make list
 chose from list
+Style
+text: Enter or Space for new option
+text: Backspace for start page

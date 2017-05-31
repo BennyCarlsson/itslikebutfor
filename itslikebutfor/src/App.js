@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import list from './list.js';
-import {FormControl, ControlLabel, Grid, Row, Col} from 'react-bootstrap';
+import {FormControl, Grid, Row, Col, PageHeader, Glyphicon} from 'react-bootstrap';
 
 class App extends Component {
   constructor(props) {
@@ -21,16 +21,16 @@ class App extends Component {
       <div>
         <Grid>
           <Row>
-            <Col xsHidden md={3}></Col>
-            <Col md={6}>
-                {
-                  this.state.showPage === "inputfield"
-                  ?<InputField showPage={this.state.showPage} lastAppEdit={this.lastAppEdit.bind(this)} lastApp={this.state.lastApp}/>
-                  :<ShowResult showPage={this.state.showPage} lastApp={this.state.lastApp} backToInputState={this.backToInputState.bind(this)}/>
-                }
+            <Col xsHidden md={1}></Col>
+            <Col md={10}>
+              {
+                this.state.showPage === "inputfield"
+                ?<InputField showPage={this.state.showPage} lastAppEdit={this.lastAppEdit.bind(this)} lastApp={this.state.lastApp}/>
+                :<ShowResult showPage={this.state.showPage} lastApp={this.state.lastApp} backToInputState={this.backToInputState.bind(this)}/>
+              }
             </Col>
-            <Col xsHidden md={3}></Col>
-          </Row>
+            <Col xsHidden md={1}></Col>
+          </  Row>
         </Grid>
       </div>
     );
@@ -73,10 +73,16 @@ class ShowResult extends Component{
   render(){
     return(
       <div onKeyPress={this.handleClick}>
-        <h1>it's like <span>{this.props.lastApp} </span>
-          but for <span>{this.state.thing}</span></h1>
-        <p className="text-left"><kbd>Backspace</kbd> for new</p>
-        <p className="text-right"><kbd>Enter</kbd> or <kbd>Space</kbd> for next</p>
+        <PageHeader>
+          <h1>
+            it's like <strong>{this.props.lastApp} </strong>
+            but for <strong>{this.state.thing}</strong>
+          </h1>
+        </PageHeader>
+        <em>
+          <div className="pull-left"><small><Glyphicon glyph="arrow-left"/> Backspace </small></div>
+          <div className="pull-right"><small>Enter or Space <Glyphicon glyph="repeat"/></small></div>
+        </em>
     </div>
     )
   }
@@ -99,8 +105,10 @@ class InputField extends Component{
   render(){
     return(
       <div>
+        <PageHeader>
+          <h1>Enter your last used application</h1>
+        </PageHeader>
         <form onSubmit={this.handleSubmit.bind(this)}>
-        <ControlLabel><h1>Enter your last used application</h1>  </ControlLabel>
           <FormControl autoFocus
             type="text"
             value={this.state.value}
