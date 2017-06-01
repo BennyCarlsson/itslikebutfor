@@ -1,12 +1,14 @@
 -------------Todo----------------
 Analytics
-Share facebook button
-Share Twitterbutton
+og test
+og img
+Share button url
 Github Link
 add stuff to list
 Readme.md
 ----------------In Progress-----
-
+Share facebook button
+Share Twitterbutton
 ----------------Done------------
 spacebar for next option
 edit title

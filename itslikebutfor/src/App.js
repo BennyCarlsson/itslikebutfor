@@ -1,6 +1,7 @@
+/*global FB*/
 import React, { Component } from 'react';
 import list from './list.js';
-import {FormControl, Grid, Row, Col, PageHeader, Glyphicon} from 'react-bootstrap';
+import {FormControl, Grid, Row, Col, PageHeader, Glyphicon, Button} from 'react-bootstrap';
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,24 @@ class ShowResult extends Component{
   componentDidMount(){
     var n = Math.floor((Math.random() * list.length));
     this.setState({thing:list[n]});
+
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '1175910025770696',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v2.9'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
   }
   newThing(){
     var n = Math.floor((Math.random() * list.length));
@@ -70,14 +89,22 @@ class ShowResult extends Component{
   componentWillUnmount(){
     document.removeEventListener("keydown",this.handleClick,false);
   }
+  share(text){
+    console.log();
+      FB.ui(
+       {
+        method: 'share',
+        quote: 'its like '+this.props.lastApp+' but for '+this.state.thing,
+        href: 'https://developers.facebook.com/docs/'
+      }, function(response){});
+  }
   render(){
     return(
       <div onKeyPress={this.handleClick}>
         <PageHeader>
-          <h1>
-            it's like <strong>{this.props.lastApp} </strong>
-            but for <strong>{this.state.thing}</strong>
-          </h1>
+          it's like <strong>{this.props.lastApp} </strong>
+          but for <strong>{this.state.thing}</strong>
+        <Button onClick={this.share.bind(this)}>FB</Button>
         </PageHeader>
         <em>
           <div className="pull-left"><small><Glyphicon glyph="arrow-left"/> Backspace </small></div>
@@ -106,7 +133,7 @@ class InputField extends Component{
     return(
       <div>
         <PageHeader>
-          <h1>Enter your last used application</h1>
+          Enter your last used application
         </PageHeader>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <FormControl autoFocus
