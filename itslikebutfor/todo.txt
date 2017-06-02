@@ -7,8 +7,7 @@ Github Link
 add stuff to list
 Readme.md
 ----------------In Progress-----
-Share facebook button
-Share Twitterbutton
+
 ----------------Done------------
 spacebar for next option
 edit title
@@ -19,3 +18,5 @@ chose from list
 Style
 text: Enter or Space for new option
 text: Backspace for start page
+Share facebook button
+Share Twitterbutton

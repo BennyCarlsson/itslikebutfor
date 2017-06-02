@@ -108,9 +108,12 @@ class ShowResult extends Component{
           it's like <strong>{this.props.lastApp} </strong>
           but for <strong>{this.state.thing}</strong>
         <small className="pull-right">
-          <a style={{color:'#777'}} href="" onClick={this.share.bind(this)}><i className="fa fa-twitter"> </i></a>
+          <a style={{color:'#777'}}
+            href={"https://twitter.com/intent/tweet?text=it's like "+this.props.lastApp+" but for "+this.state.thing+" &amp;hashtags=itslikebutfor http://bennycarlsson.com/"}>
+            <i className="fa fa-twitter"> </i>
+          </a>
           <span>     </span>
-          <a style={{color:'#777'}} href="" onClick={this.share.bind(this)}><i className="fa fa-facebook"> </i></a>
+          <a style={{color:'#777'}} href="#" onClick={this.share.bind(this)}><i className="fa fa-facebook"> </i></a>
         </small>
       </PageHeader>
         <em>
