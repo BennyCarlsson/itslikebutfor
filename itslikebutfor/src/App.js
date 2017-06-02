@@ -1,7 +1,7 @@
 /*global FB*/
 import React, { Component } from 'react';
 import list from './list.js';
-import {FormControl, Grid, Row, Col, PageHeader, Glyphicon, Button} from 'react-bootstrap';
+import {FormControl, Grid, Row, Col, PageHeader, Glyphicon} from 'react-bootstrap';
 
 class App extends Component {
   constructor(props) {
@@ -104,8 +104,13 @@ class ShowResult extends Component{
         <PageHeader>
           it's like <strong>{this.props.lastApp} </strong>
           but for <strong>{this.state.thing}</strong>
-        <Button onClick={this.share.bind(this)}>FB</Button>
-        </PageHeader>
+        <small className="pull-right">
+
+          <a style={{color:'#777'}} href="" onClick={this.share.bind(this)}><i className="fa fa-twitter"></i></a>
+          <span>     </span>
+          <a style={{color:'#777'}} href="" onClick={this.share.bind(this)}><i className="fa fa-facebook"></i></a>
+        </small>
+      </PageHeader>
         <em>
           <div className="pull-left"><small><Glyphicon glyph="arrow-left"/> Backspace </small></div>
           <div className="pull-right"><small>Enter or Space <Glyphicon glyph="repeat"/></small></div>
