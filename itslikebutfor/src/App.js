@@ -72,11 +72,14 @@ class ShowResult extends Component{
     var n = Math.floor((Math.random() * list.length));
     this.setState({thing:list[n]});
   }
+  backSpace(){
+    document.removeEventListener("keydown",this.handleClick.bind(this));
+    this.props.backToInputState();
+  }
   handleClick(e){
     //backspace
     if(e.code === "Backspace"){
-      document.removeEventListener("keydown",this.handleClick.bind(this));
-      this.props.backToInputState();
+      this.backSpace();
     }
     //enter och space
     if(e.code === "Enter" || e.code === "Space"){
@@ -105,15 +108,14 @@ class ShowResult extends Component{
           it's like <strong>{this.props.lastApp} </strong>
           but for <strong>{this.state.thing}</strong>
         <small className="pull-right">
-
-          <a style={{color:'#777'}} href="" onClick={this.share.bind(this)}><i className="fa fa-twitter"></i></a>
+          <a style={{color:'#777'}} href="" onClick={this.share.bind(this)}><i className="fa fa-twitter"> </i></a>
           <span>     </span>
-          <a style={{color:'#777'}} href="" onClick={this.share.bind(this)}><i className="fa fa-facebook"></i></a>
+          <a style={{color:'#777'}} href="" onClick={this.share.bind(this)}><i className="fa fa-facebook"> </i></a>
         </small>
       </PageHeader>
         <em>
-          <div className="pull-left"><small><Glyphicon glyph="arrow-left"/> Backspace </small></div>
-          <div className="pull-right"><small>Enter or Space <Glyphicon glyph="repeat"/></small></div>
+          <div className="pull-left" onClick={this.backSpace.bind(this)}><small><Glyphicon glyph="arrow-left"/> Backspace </small></div>
+          <div className="pull-right" onClick={this.newThing.bind(this)}><small>Enter or Space <Glyphicon glyph="repeat"/></small></div>
         </em>
     </div>
     )
