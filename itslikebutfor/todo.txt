@@ -1,13 +1,11 @@
 -------------Todo----------------
-Analytics
 og test
 og img
 Share button url
-Github Link
 add stuff to list
 Readme.md
 ----------------In Progress-----
-
+Analytics
 ----------------Done------------
 spacebar for next option
 edit title
