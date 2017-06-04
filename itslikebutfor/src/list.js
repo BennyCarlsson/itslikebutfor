@@ -90,5 +90,7 @@ export default[
   "americans",
   "trump supporters",
   "tourists",
-  "linux users"
+  "linux users",
+  "less stupid",
+  "stupid"
 ];
