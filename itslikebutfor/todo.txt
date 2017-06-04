@@ -1,12 +1,12 @@
 -------------Todo----------------
-og test
+og check
 og img
-Share button url
 add stuff to list
 Readme.md
 ----------------In Progress-----
-Analytics
+
 ----------------Done------------
+Analytics
 spacebar for next option
 edit title
 chose random from list
@@ -18,3 +18,5 @@ text: Enter or Space for new option
 text: Backspace for start page
 Share facebook button
 Share Twitterbutton
+test live
+Share button url

@@ -52,7 +52,7 @@ class ShowResult extends Component{
 
     window.fbAsyncInit = function() {
       FB.init({
-        appId            : '1175910025770696',
+        appId            : '1933529873547959',
         autoLogAppEvents : true,
         xfbml            : true,
         version          : 'v2.9'
@@ -98,7 +98,7 @@ class ShowResult extends Component{
        {
         method: 'share',
         quote: 'its like '+this.props.lastApp+' but for '+this.state.thing,
-        href: 'https://developers.facebook.com/docs/'
+        href: 'http://itslikebutfor.com'
       }, function(response){});
   }
   render(){
@@ -109,7 +109,7 @@ class ShowResult extends Component{
           but for <strong>{this.state.thing}</strong>
         <small className="pull-right">
           <a style={{color:'#777'}}
-            href={"https://twitter.com/intent/tweet?text=it's like "+this.props.lastApp+" but for "+this.state.thing+" &amp;hashtags=itslikebutfor http://bennycarlsson.com/"}>
+            href={"https://twitter.com/intent/tweet?text=it's like "+this.props.lastApp+" but for "+this.state.thing+" &amp;hashtags=itslikebutfor http://itslikebutfor.com/"}>
             <i className="fa fa-twitter"> </i>
           </a>
           <span>     </span>
