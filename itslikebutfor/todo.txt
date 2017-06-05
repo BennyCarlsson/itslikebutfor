@@ -1,8 +1,5 @@
 -------------Todo----------------
-og check
-og img
 add stuff to list
-Readme.md
 ----------------In Progress-----
 
 ----------------Done------------
@@ -20,3 +17,6 @@ Share facebook button
 Share Twitterbutton
 test live
 Share button url
+Readme.md
+og check
+og img
